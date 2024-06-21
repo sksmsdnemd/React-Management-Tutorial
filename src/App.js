@@ -1,7 +1,14 @@
 import logo from './logo.svg';
 import Customer from './components/Customer'
 import './App.css';
-// import '../../management/public'
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
+import TableRow from '@mui/material/TableRow';
+import TableCell from '@mui/material/TableCell';
+
+
 
 const customer = [{
   'id' : 1,
@@ -28,23 +35,37 @@ const customer = [{
 
 function App() {
   return (
-    <div>
-      {customer.map(c => {
-          return (
-            <Customer 
-              key={c.id}
-              id={c.id}
-              image={c.image}
-              name={c.name}
-              birthday={c.birthday}
-              gender={c.gender}
-              job={c.job}
-              >
-            </Customer>
-          );
-        })}
-    </div>
+    <Paper>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>번호</TableCell>
+            <TableCell>이미지</TableCell>
+            <TableCell>이름</TableCell>
+            <TableCell>성별</TableCell>
+            <TableCell>생년월일</TableCell>
+            <TableCell>직업</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {customer.map(c => {
+            return (
+              <Customer 
+                key={c.id}
+                id={c.id}
+                image={c.image}
+                name={c.name}
+                birthday={c.birthday}
+                gender={c.gender}
+                job={c.job}
+                >
+              </Customer>
+            );
+          })}
+        </TableBody>
+      </Table>
+    </Paper>
   );
 }
 
-export default App;
+export default (App);
